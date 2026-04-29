@@ -1,6 +1,6 @@
 import express from "express";
 import * as userController from "../controllers/users.js";
-import authenticate from "../database/seeds/scripts/middleware/auth.js";
+import { authenticate } from "../database/seeds/scripts/middleware/auth.js";
 
 const router = express.Router();
 
