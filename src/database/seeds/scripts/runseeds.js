@@ -1,7 +1,5 @@
 import sequelize from "../../../config/db.js";
-import { seedUsers } from "../users.js";
 import { seedCourses } from "../course.js";
-import { seedEnrollments } from "../enrollment.js";
 
 const runSeeds = async () => {
   try {
@@ -10,14 +8,9 @@ const runSeeds = async () => {
     await sequelize.authenticate();
     console.log("Database connected");
 
-    await sequelize.sync({ force: true });
-    console.log("Tables created");
-
-    await seedUsers();
     await seedCourses();
-    await seedEnrollments();
 
-    console.log("All seeds completed successfully");
+    console.log("✅ All seeds completed successfully");
     process.exit(0);
   } catch (error) {
     console.error("Seeding failed:", error);

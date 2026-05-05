@@ -1,9 +1,6 @@
 import Course from "../model/course.js";
-import sequelize from "../../config/db.js";
 
 export const seedCourses = async () => {
-  await sequelize.sync({ force: true });
-
   const courses = [
     {
       title: "Traffic Rules Basics",
@@ -26,6 +23,7 @@ export const seedCourses = async () => {
         - School zones: 30 km/h
       `,
       category: "traffic_rules",
+      stage: "1",
       price: 0.0,
       isActive: true,
     },
@@ -51,6 +49,7 @@ export const seedCourses = async () => {
         - Know your location at all times
       `,
       category: "road_safety",
+      stage: "2",
       price: 0.0,
       isActive: true,
     },
@@ -76,40 +75,7 @@ export const seedCourses = async () => {
         - Hill parking with curb
       `,
       category: "vehicle_control",
-      price: 0.0,
-      isActive: true,
-    },
-    {
-      title: "Driving Test Practice",
-      description: "Practice test questions for driving license",
-      content: `
-        # Practice Test Questions
-
-        1. What does a red traffic light mean?
-        a) Proceed with caution
-        b) Stop completely
-        c) Slow down
-        d) Turn left
-
-        2. What is the speed limit in school zones?
-        a) 50 km/h
-        b) 40 km/h
-        c) 30 km/h
-        d) 60 km/h
-
-        3. When should you use headlights?
-        a) Only at night
-        b) Only in rain
-        c) In poor visibility
-        d) Never
-
-        4. What is defensive driving?
-        a) Fast driving
-        b) Aggressive driving
-        c) Anticipating hazards
-        d) Driving without a license
-      `,
-      category: "practice_test",
+      stage: "3",
       price: 0.0,
       isActive: true,
     },
@@ -119,5 +85,5 @@ export const seedCourses = async () => {
     await Course.create(course);
   }
 
-  console.log("Courses seeded successfully");
+  console.log("✅ Courses seeded successfully");
 };

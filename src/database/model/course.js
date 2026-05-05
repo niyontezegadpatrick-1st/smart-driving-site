@@ -32,6 +32,11 @@ const Course = sequelize.define(
       ),
       allowNull: false,
     },
+    stage: {
+      type: DataTypes.ENUM("1", "2", "3"),
+      allowNull: false,
+      defaultValue: "1",
+    },
     price: {
       type: DataTypes.DECIMAL(10, 2),
       defaultValue: 0.0,

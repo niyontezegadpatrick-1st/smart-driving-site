@@ -26,8 +26,16 @@ const Enrollment = sequelize.define(
       },
     },
     status: {
-      type: DataTypes.ENUM("pending", "completed", "cancelled"),
+      type: DataTypes.ENUM("pending", "active", "completed", "cancelled"),
       defaultValue: "pending",
+    },
+    currentStage: {
+      type: DataTypes.ENUM("1", "2", "3"),
+      defaultValue: "1",
+    },
+    isPaid: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
     },
     enrolledAt: {
       type: DataTypes.DATE,
